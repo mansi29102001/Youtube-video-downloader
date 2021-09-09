@@ -1,0 +1,17 @@
+from pytube import YouTube
+link=input("Enter the link:")
+yt=YouTube(link)
+print("Title of video:",yt.title)
+print("Descripton of video:",yt.description)
+print("Ratings of video:",yt.rating)
+print("No.of views:",yt.views)
+print("Author:",yt.author)
+print("Captions:",yt.captions)
+print("Channel id:",yt.channel_id)
+print("Length of video:",yt.length)
+
+print("\n\n\n\nAvailable streams:")
+#print(yt.streams)
+print(yt.streams.filter(only_video=True))
+ys=yt.streams.get_highest_resolution()
+ys.download()
